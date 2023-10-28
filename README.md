@@ -4,10 +4,10 @@
 Data Warehouse and ETL Implementation
 
 ## Case Study
-- 1. Restore Database
-- 2. Create Table Fact and Dimension
-- 3. Create ETL Process / Data Pipeline
-- 4. Create Store Procedure
+- Restore Database
+- Create Table Fact and Dimension
+- Create ETL Process / Data Pipeline
+- Create Store Procedure
 
 ## 1. Restore Database Staging
 The first step is to restore the staging.bak database. To do so, see the image below.
