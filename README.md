@@ -1,6 +1,7 @@
-# Data Engineer at ID/X Partners
-## Data Warehouse and ETL Implementation
 ![image](https://github.com/musafak-93/Data-Warehouse-and-ETL/assets/62982123/b1a4f73d-ae02-418e-a5b8-c81756fc139c)
+
+# Data Engineer at ID/X Partners
+Data Warehouse and ETL Implementation
 
 ## Case Study
 - 1. Restore Database
@@ -112,6 +113,35 @@ The next step is to create a job in Talend using the tMSSqllinput and tMSSqlOutp
 
 - Result table data after moving data from the staging Database to the DWH_Project Database.
   - ![image](https://github.com/musafak-93/Data-Warehouse-and-ETL/assets/62982123/fac1a6f9-7ac9-4055-bbea-e7c903bfde65)
+
+## 4. Create Store Procedure
+Store Procedure named summary_order_status contains SELECT and JOIN commands between fact and dimension tables to display several columns, namely OrderID, CustomerName, ProductName, Quantity, StatusOrder. The following is an example of creating a Store Procedure with StatusID as a parameter.
+- Query Store Procedure
+  ```bash
+  CREATE PROCEDURE summary_order_status
+    @StatusID INT
+  AS
+  BEGIN
+    SELECT
+        fso.OrderID,
+        dc.CustomerName,
+        dp.ProductName,
+        fso.Quantity,
+        dso.StatusOrder
+    FROM FactSalesOrder fso
+    JOIN DimCustomer dc ON fso.CustomerID = dc.CustomerID
+    JOIN DimProduct dp ON fso.ProductID = dp.ProductID
+    JOIN DimStatusOrder dso ON fso.StatusID = dso.StatusID
+    WHERE dso.StatusID = @StatusID;
+  END;
+
+  EXEC summary_order_status @StatusID = 1;
+  ```
+- Result SP
+  - ![image](https://github.com/musafak-93/Data-Warehouse-and-ETL/assets/62982123/a6321565-8b4e-409f-8eb1-0337e62eb23e)
+
+## Link Video Presentation
+
 
 
 
