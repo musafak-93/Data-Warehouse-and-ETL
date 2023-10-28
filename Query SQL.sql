@@ -1,6 +1,7 @@
-
+-- Create Database DWH_Project
 CREATE DATABASE DWH_Project;
 
+-- Create Table DimCustomer
 CREATE TABLE DimCustomer (
     CustomerID int NOT NULL PRIMARY KEY,
     FirstName varchar(50) NOT NULL,
@@ -11,7 +12,7 @@ CREATE TABLE DimCustomer (
 	NoHP varchar(50) NOT NULL,
 );
 
-
+-- Create Table DimProduct
 CREATE TABLE DimProduct (
     ProductID int NOT NULL PRIMARY KEY,
     ProductName varchar(255) NOT NULL,
@@ -19,12 +20,14 @@ CREATE TABLE DimProduct (
 	ProductUnitPrice int,
 );
 
+-- Create Table DimStatusOrder
 CREATE TABLE DimStatusOrder (
     StatusID int NOT NULL PRIMARY KEY,
     StatusOrder varchar(50) NOT NULL,
 	StatusOrderDesc varchar(50) NOT NULL,
 );
 
+-- Create Table FactSalesOrder
 CREATE TABLE FactSalesOrder (
     OrderID int NOT NULL PRIMARY KEY,
 	 CustomerID int NOT NULL,
@@ -46,6 +49,8 @@ SELECT * FROM DimProduct;
 SELECT * FROM DimStatusOrder;
 SELECT * FROM FactSalesOrder;
 
+
+-- Create Store Procedure
 CREATE PROCEDURE summary_order_status
     @StatusID INT
 AS
