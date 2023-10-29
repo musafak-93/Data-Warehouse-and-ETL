@@ -3,6 +3,20 @@
 # Data Engineer at ID/X Partners
 Data Warehouse and ETL Implementation
 
+## Video Presentation
+``` bash
+https://youtu.be/YCUO0fDqs6U
+```
+## Tools
+- Talend
+- SQL Server
+
+## Skills
+- Data Warehouse
+- ETL and ELT
+- Store Procedure
+- Restore Database
+
 ## Case Study
 - Restore Database
 - Create Table Fact and Dimension
